@@ -1,0 +1,138 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title></title>
+        <meta name="mobile-web-app-capable" content="yes">      
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+        <!-- Bootstrap css & js -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <!-- Custom css & js for the app -->
+        <script type="text/javascript" src="js/retail.js"></script>
+        <script type="text/javascript" src="js/personality.js"></script>
+        <script src="js/qrcode.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/retail.css">  
+        
+    </head>
+<!-- -------------------------------START BODY--------------------------------------- -->
+    <body>         
+    <!-- CONFIG DIV  -->
+        
+    <!-- CONFIG DIV  -->
+    
+    <!-- HOME DIV -->
+      
+    <!-- HOME DIV-->
+
+    <!-- AGE DIV -->
+    
+    <!-- AGE DIV-->
+
+    <!-- QUIZ DIV -->
+        <div id="quiz-view" class="container" style="display: block;  height:100%;">
+            <div class="row p-top text-right" ><span class="glyphicon glyphicon-home"></span></div>
+	        <div class="row text-center p-top"> 
+                <img src="img/QUIZ-logo.png" alt="Logo" height="40%"> 
+            </div>
+            <div class="row text-center title p-top">
+                Let's start with a personality quiz
+            </div>
+            <div id="quiz-buttons" class="row text-center p-top">  
+                <div class="row text-center">
+                    <button type="button" class="btn btn-large btn-block btn-success" onclick="startFirstQuestion()">Start</button>                
+                </div>
+                
+            </div>
+        </div>
+    <!-- QUIZ DIV-->
+    
+    <!-- QUESTION DIV -->
+        <div id="question-view" class="container" style="display: none;  height:100%;">
+            <div class="row p-top" >
+		
+		 <div class="row text-right p-top"  style=" height:10%;"><span class="glyphicon glyphicon-home"></span></div>
+	    </div>
+            
+
+            <div id="question" class="row text-center p-top title" style="font-weight: bold;">
+            </div>
+            
+            <div id="ans" class="row text-center p-top">  
+                 <div class="row text-center p-top">
+                    <div id="1" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" onclick="nextQuestion()">
+
+                    </div>
+                    <div id="3" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" onclick="nextQuestion()">
+
+                    </div>
+					<div id="2" class="text-center" onclick="nextQuestion()">
+                                
+                    </div>
+                </div>
+                <div class="row text-center p-top">
+                    <div id="4" class="row text-center p-top" onclick="nextQuestion()">
+                    
+                    </div>
+ 				</div>
+                <div class="row text-center p-top">
+					<div id="5" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" onclick="nextQuestion()">
+                    
+                    </div>
+					<div id="7" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" onclick="nextQuestion()">
+                    
+                    </div>
+ 
+					<div id="6" class="text-center" onclick="nextQuestion()">
+                    
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    <!-- QUESTION DIV -->
+
+    <!-- INFO DIV -->
+        <div id="info-view" class="container" style="display: none; ">
+            <div onclick="noQuiz2();" style=" height:100%;">
+                <div id="info" style="padding-top:20%" class="row text-center p-top title">  
+                    
+                </div>
+                <div class="row text-center p-top">  
+                    Touch the screen to continue
+                </div>
+            </div>
+        </div>
+    <!-- INFO DIV -->
+
+    <!-- FEEDBACK DIV -->
+        <div id="feedback-view" class="container" style="display: none; ">
+            <div class="row text-right p-top"  style=" height:10%;"><span class="glyphicon glyphicon-home"></span></div>
+            <div onclick="nextQuestion()" style=" height:90%;">
+                <div id="feedback" class="row text-center p-top title">  
+                    
+                </div>
+                <div class="row text-center p-top">  
+                    Touch the screen to continue
+                </div>
+            </div>
+        </div>
+    <!-- FEEDBACK DIV -->
+
+    <!-- QR DIV -->
+        <div id="code-view" class="container" style="display: none; height:100%;" onclick="goHomeFinished()">
+	        <div class="row text-right p-top" ><span class="glyphicon glyphicon-home" onclick="goHomeFinished()"></span></div>
+            <div class="row text-center p-top" >
+                <p id="correct-ans"></p>
+                <p>Thank you for your collaboration</p>
+
+            </div>
+            <div class="row text-center p-top">
+                <p>Touch the screen to continue</p>
+            </div>
+        </div>
+    <!-- QR DIV-->
+    <div id="inputTextToSave" style="display: none;"></div>
+    </body>
+</html>

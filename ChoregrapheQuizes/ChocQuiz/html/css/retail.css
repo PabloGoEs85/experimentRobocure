@@ -1,0 +1,24 @@
+.title{
+    font-size: 25pt;
+}
+.p-top{
+    padding-top: 5%;
+}
+.p-bottom{
+    padding-bottom: 10%;
+}
+
+.hidden{
+    display: none; 
+}
+
+.show{
+    display:block;
+}
+body{
+    user-select: none;
+    font-size: 21pt;
+    margin: 0;
+    /* height: 100%; 
+    overflow: hidden */
+}

@@ -1,0 +1,22 @@
+{
+  "name": "robocure-ros",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-gzip": "^1.4.0",
+    "gulp-tar": "^2.0.0",
+    "gulp-chmod": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gert_braspenning@bitbucket.org/aptusnv/robocure-ros.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/aptusnv/robocure-ros#readme"
+}

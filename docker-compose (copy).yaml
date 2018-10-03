@@ -1,0 +1,43 @@
+version: "2"
+services:
+    ros-master:
+        build: ./containers/actuation
+        ports:
+         - "11311:11311"
+        environment:
+         - ROBOT_IP=192.168.1.24
+         - PYTHONUNBUFFERED=0
+    ros-kafka:
+        build: ./containers/kafkaInterface
+        environment:
+         - ROS_MASTER_URI=http://ros-master:11311/
+         - KAFKA_HOST=193.190.127.230
+         - KAFKA_PORT=9092
+         - PYTHONUNBUFFERED=0
+        depends_on:
+         - ros-master
+
+    ros-adapter:
+        build: ./containers/adapter
+        environment:
+         - ROS_MASTER_URI=http://ros-master:11311/
+         - PYTHONUNBUFFERED=0
+        depends_on:
+         - ros-master
+
+    ros-deliberative:
+        build: ./containers/deliberative
+        environment:
+         - ROS_MASTER_URI=http://ros-master:11311/
+         - PYTHONUNBUFFERED=0
+        depends_on:
+         - ros-master
+
+    ros-reactive:
+        build: ./containers/reactive
+        environment:
+         - ROS_MASTER_URI=http://ros-master:11311/
+         - PYTHONUNBUFFERED=0
+        depends_on:
+         - ros-master
+

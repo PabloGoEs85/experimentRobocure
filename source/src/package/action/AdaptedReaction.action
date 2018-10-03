@@ -1,0 +1,15 @@
+#
+# goal 
+#
+string reaction
+---
+#
+# result
+#
+bool finished
+---
+#
+# feedback
+#
+duration time_elapsed
+duration time_remaining

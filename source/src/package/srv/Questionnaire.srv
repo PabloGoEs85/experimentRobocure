@@ -1,0 +1,22 @@
+#
+# request 
+#
+bool questionnaire_request
+---
+#
+# response
+#
+int8 q1_response
+int8 q2_response
+int8 q3_response
+int8 q4_response
+int8 q5_response
+int8 q6_response
+int8 q7_response
+int8 q8_response
+int8 q9_response
+int8 q10_response
+int8 q11_response
+int8 q12_response
+int8 flag_response
+int8 personality_response

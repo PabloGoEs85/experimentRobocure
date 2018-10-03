@@ -1,0 +1,1 @@
+ugent          - KAFKA_HOST=193.190.127.230

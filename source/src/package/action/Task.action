@@ -1,0 +1,20 @@
+#
+# learning goal (1 corresponds to the main task: sensor insertion procedure; 1.x corresponds to the learning goal)
+# 1.5 The patient can complete the steps of the procedure in the right order:
+# Robot asks if patient can help it remembering the steps. It shows cards in the tablet and the patient needs to order them.
+# Robot evaluates patient's performance and gives feedback. It also gives encourage messages during exercise.
+#
+string task
+string name
+string language
+---
+#
+# result
+#
+bool finished
+---
+#
+# feedback
+#
+duration time_elapsed
+duration time_remaining
