@@ -9,7 +9,7 @@ import os
 #import functools
 import actionlib
 import threading
-
+from package.msg import *
 from package.srv import *
 
 #def play_video(session, url): 
@@ -438,10 +438,11 @@ def eyeBlinkingBehavior(profile):
 
 
 def whenTouched(bodyPart): #associates a gesture to the touched body part
-    facialExpression(1,profileFromAdapter) #happy face
+    global profileFromController
+    facialExpression(1,profileFromController) #happy face
     gesturesService = session.service ("ALBehaviorManager")
     if (bodyPart ==1): #left bumper
-        if (profileFromAdapter > -0.1):
+        if (profileFromController > -0.1):
             aux = random.random()
             if (aux < 0.33):
                 gesture = "Stand/Gestures/BowShort_2"
@@ -457,7 +458,7 @@ def whenTouched(bodyPart): #associates a gesture to the touched body part
                 gesture = "Stand/Gestures/BowShort_3"
 
     elif (bodyPart ==2): #right bumper
-        if (profileFromAdapter > -0.1):
+        if (profileFromController > -0.1):
             aux = random.random()
             if (aux < 0.25):
                 gesture = "Stand/Gestures/BowShort_2"
@@ -475,7 +476,7 @@ def whenTouched(bodyPart): #associates a gesture to the touched body part
                 gesture = "Stand/Gestures/BowShort_3"
 
     elif (bodyPart == 3): #head
-        if (profileFromAdapter > 0.1):
+        if (profileFromController > 0.1):
             aux = random.random()
             if (aux < 0.25):
                 gesture = "Stand/Reactions/TouchHead_1"
@@ -485,7 +486,7 @@ def whenTouched(bodyPart): #associates a gesture to the touched body part
                 gesture = "Stand/Reactions/TouchHead_3"
             else:
                 gesture = "Stand/Reactions/TouchHead_4"
-        elif (profileFromAdapter > -0.6):
+        elif (profileFromController > -0.6):
             aux2 = random.random()
             if (aux2 < 0.33):
                 gesture = "Stand/Emotions/Negative/Surprise_1"
@@ -502,7 +503,7 @@ def whenTouched(bodyPart): #associates a gesture to the touched body part
             else:
                 gesture = "Stand/Emotions/Positive/Shy_1"
     elif (bodyPart == 4): #left hand
-        if (profileFromAdapter < 0.1):
+        if (profileFromController < 0.1):
             aux2 = random.random()
             if (aux2 < 0.5):
                 gesture = "Stand/Reactions/SeeSomething_5"
@@ -516,7 +517,7 @@ def whenTouched(bodyPart): #associates a gesture to the touched body part
                 gesture = "Stand/BodyTalk/Listening/Listening_6"
 
     elif (bodyPart == 5): #right hand
-        if (profileFromAdapter > -0.1):
+        if (profileFromController > -0.1):
             aux2 = random.random()
             if (aux2 < 0.33):
                 gesture = "Stand/BodyTalk/Listening/Listening_2"
@@ -525,7 +526,7 @@ def whenTouched(bodyPart): #associates a gesture to the touched body part
             else:
                 gesture = "Stand/BodyTalk/Listening/Listening_6"
 
-        elif (profileFromAdapter > -0.9):
+        elif (profileFromController > -0.9):
             aux2 = random.random()
             if (aux2 < 0.33):
                 gesture = "Stand/Reactions/SeeSomething_5"
@@ -544,12 +545,12 @@ def whenTouched(bodyPart): #associates a gesture to the touched body part
     if (result == False):
         print "running gesture failed"
 
-    facialExpression(0,profileFromAdapter)
+    facialExpression(0,profileFromController)
 
 
 def readSensors():
     global finish
-    global profileFromAdapter
+    global profileFromController
 
     peopleService = session.service("ALPeoplePerception")
     peopleService.subscribe("forPeople")
@@ -575,7 +576,7 @@ def readSensors():
         someoneZone1 = memoryService.getData("EngagementZones/PeopleInZone1")
         someoneZone2 = memoryService.getData("EngagementZones/PeopleInZone2")
         someoneZone3 = memoryService.getData("EngagementZones/PeopleInZone3")
-        proxemics (profileFromAdapter, someoneZone1, someoneZone2, someoneZone3)
+        proxemics (profileFromController, someoneZone1, someoneZone2, someoneZone3)
 
         leftBumperTouched = 0
         leftBumperTouched = memoryService.getData("LeftBumperPressed")
@@ -611,8 +612,7 @@ def readSensors():
 
 
 def startIdle():
-    global finish
-    global profileFromAdapter
+    global profileFromController
 
     global faceExpressionPrevious
     global gazeVariation
@@ -640,161 +640,62 @@ def startIdle():
         idleMotion(profile, finishValue)
 
     #set idle behaviors ON
-    setIdleBehavior(profileFromAdapter, finish)
+    setIdleBehavior(profileFromController, finish)
 
     while(not finish):
-        eyeBlinkingBehavior(profileFromAdapter)
+        eyeBlinkingBehavior(profileFromController)
         time.sleep(4)
 
     #set idle behaviors OFF
-    setIdleBehavior(profileFromAdapter, finish)
-
-def readMemoryEventsFromQuiz(profile):
-    memoryEventsService = session.service("ALMemory")
-    memoryEventsService.raiseEvent ("QuestionQuiz", "")
-    memoryEventsService.raiseEvent ("FaceFeedback", "0")
-    newSentence = memoryEventsService.getData ("QuestionQuiz")
-    newColorFace = memoryEventsService.getData ("FaceFeedback")
-    #speak (newSentence, profile)
-    previousSentence = newSentence
-    previousColorFace = newColorFace
-    #print "Gotten from memory " + newSentence
-    while(True):
-        newColorFace = memoryEventsService.getData ("FaceFeedback")
-        if (newColorFace != previousColorFace):
-            print
-            "color face" + newColorFace
-            facialExpression (int (newColorFace), profile)
-            previousColorFace = newColorFace
-
-        newSentence = memoryEventsService.getData ("QuestionQuiz")
-        if (newSentence != previousSentence):
-            print "Gotten from memory " + newSentence
-            speak(newSentence,profile)
-            previousSentence = newSentence
+    setIdleBehavior(profileFromController, finish)
 
 
 
 def scriptManager(): #manages the script
-    global quizFromGUI
-    global profileFromAdapter
-    if (quizFromGUI == 0): #Brussels
-        script = "quizExtrovert2-247899/behavior_1"
-    elif (quizFromGUI == 1): #Chocolate
-        script = "quizIntrovert2-247898/behavior_1"
-    elif (quizFromGUI == 2): #WorldCup
-        script = "quizNeutral-247555/behavior_1"
+    global profileFromController
+    def receive_sentence(sentenceSent):
 
-    print "Script Manager %d" %quizFromGUI
-    behaviorService = session.service("ALBehaviorManager")
-    behaviorService.runBehavior(script)
-    #time.sleep(5)
-    #memoryEventsService = session.service ("ALMemory")
-    #newSentence = memoryEventsService.getData ("QuestionQuiz")
-    #print "Gotten from memory " + newSentence
-    readMemoryEventsFromQuiz(profileFromAdapter)
+        print "Message received motherfocka ACTUATION " +sentenceSent.sentence
 
-#def sendQuestionnaire(request):
+        speak(sentenceSent.sentence, profileFromController)
+        #time.sleep (3)
 
-#	return QuestionnaireResponse(entry1,entry2,entry3,entry4,entry5,entry6,entry7,entry8,entry9,entry10,entry11,entry12,entry13,entry14,entry15,flag,entryId)
+        resultSentence = SentenceResult ()
+        sentenceServer.set_succeeded (resultSentence)
+    # listens to controller to trigger behaviors / speak
+    sentenceServer = actionlib.SimpleActionServer ('turn1', SentenceAction,
+                                                   receive_sentence, False)
+    sentenceServer.start ()
+
 
 def main(session):
     global finish
-    global profileFromAdapter
-    global flagFromAdapter
-    global quizFromGUI
-
-    def sendQuestionnaire(request):
-
-        return QuestionnaireResponse(q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,quizFromGUI,0)
-    def startsSystem():
-        global flagFromAdapter
-        global profileFromAdapter
-        print "launches system"
-        rospy.wait_for_service('adapterPersonality')
-        try:
-            profileClient = rospy.ServiceProxy('adapterPersonality', Personality)
-            profile = profileClient()
-            profileFromAdapter = profile.personality_profile
-            flagFromAdapter = profile.flag_profile
-            print "Actuation got profile: %s"%profileFromAdapter
-        except rospy.ServiceException as e:
-            print "profile call failed: %s"%e
-
-    #	memoryService = session.service("ALMemory")
-    #	memoryService.insertData("UserProfile", profileFromAdapter)
-        #thread to run idle behaviors
-        tIdle = threading.Thread(target=startIdle)
-        tIdle.start()
-
-        #thread to receive tasks + finish flag from interface
-        tScript = threading.Thread(target=scriptManager)
-        tScript.start()
-
-        #thread to listen to sensory information
-        tSensorsWhile = threading.Thread(target=readSensors)
-        tSensorsWhile.start()
-
+    global profileFromController
 
     rospy.init_node('actuation')
 
-    rospy.wait_for_service('GUICommand') #controls script
+    rospy.wait_for_service('controllerPersonality1') #gets personality for robot1
     try:
-        guiClient = rospy.ServiceProxy('GUICommand', GUICommand)
-        guiCommand = guiClient()
-        personalityFromGUI = guiCommand.command_personality
-        firstFromGUI = guiCommand.command_first
-        startFromGUI = guiCommand.command_start
+        profileClient = rospy.ServiceProxy('controllerPersonality1', Personality)
+        profile = profileClient()
+        profileFromController = profile.personality_profile
 
-        print "from gui %d" %personalityFromGUI
-        print "from gui %d" %firstFromGUI
-        print "from gui %d" %startFromGUI
+        print "personality for robot 1 %d" %profileFromController
 
-        commandFromGUI = guiCommand.command_response
-        quizFromGUI = guiCommand.command_quiz
-        print "command..."
-        if (commandFromGUI == 1): #launches personality quiz
-            print "launches quiz actuation"
-            behaviorService = session.service("ALBehaviorManager")
-#			behaviorService.stopAllBehaviors()
-            behaviorService.runBehavior("personalityquiz-247837/behavior_1")
-            time.sleep(3)
-            #control if we have reached the end of the quiz
-            memoryService = session.service("ALMemory")
-            memoryService.insertData("PQFinish", 0)
-            stillRunningQuiz = memoryService.getData("PQFinish")
+        # sets up personality of the robot
+        # ... ?
 
-            #reads variable PersonalityQuizFinished in memory, keeps reading until True
-            while (stillRunningQuiz == 0):
-            #	notFinished = True
-                print "still running"
-                time.sleep(3)
-                stillRunningQuiz = memoryService.getData("PQFinish")
+        tIdle = threading.Thread (target=startIdle)
+        tIdle.start ()
 
-            print "finished"
-            memoryService.insertData("PQFinish", 0)
-            #reads info from memory and sends it back to gui
-            q1 = int(memoryService.getData("q1"))
-            q2 = int(memoryService.getData("q2"))
-            q3 = int(memoryService.getData("q3"))
-            q4 = int(memoryService.getData("q4"))
-            q5 = int(memoryService.getData("q5"))
-            q6 = int(memoryService.getData("q6"))
-            q7 = int(memoryService.getData("q7"))
-            q8 = int(memoryService.getData("q8"))
-            q9 = int(memoryService.getData("q9"))
-            q10 = int(memoryService.getData("q10"))
-            q11 = int(memoryService.getData("q11"))
-            q12 = int(memoryService.getData("q12"))
+        # thread to receive tasks + finish flag from interface
+        tScript = threading.Thread (target=scriptManager)
+        tScript.start ()
 
-            print "q1 %d" %q1
+        # thread to listen to sensory information
+        tSensorsWhile = threading.Thread (target=readSensors)
+        tSensorsWhile.start ()
 
-            srvActuationToGUIServer = rospy.Service('questionnaire', Questionnaire, sendQuestionnaire)
-            startsSystem()
-        elif (commandFromGUI == 2): #starts system
-            startsSystem()
-        elif (startCommandFromGUI == 3): #stops system
-            finish = True
     except rospy.ServiceException as e:
         print "profile call failed: %s"%e
 

@@ -55,7 +55,10 @@ add_service_files(
    GUICommand.srv
    Personality.srv
  )
-
+add_action_files(
+   FILES
+   Sentence.action
+ )
 
 generate_messages(
    DEPENDENCIES

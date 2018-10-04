@@ -4,9 +4,6 @@
 bool personality_request
 ---
 #
-# response: feedback ->   1 = soft;  2 = tough
-#           reactivity -> 1 = shy;   2 = extrovert
-#           role ->       1 = peer;  2 = tutor
 #
-float32 personality_profile
-float32 flag_profile
+int8 personality_profile
+

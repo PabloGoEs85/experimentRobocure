@@ -4,7 +4,6 @@
 bool command_request
 ---
 #
-# response: 1--> quiz; 2--> system; 3--> stop
 #
 int8 command_personality
 int8 command_first
