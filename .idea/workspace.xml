@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfb77dbb-bc97-4731-88ec-3654b33b504b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/containers/GUI/source.tar" beforeDir="false" afterPath="$PROJECT_DIR$/containers/GUI/source.tar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/containers/actuation/source.tar" beforeDir="false" afterPath="$PROJECT_DIR$/containers/actuation/source.tar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/containers/actuation2/source.tar" beforeDir="false" afterPath="$PROJECT_DIR$/containers/actuation2/source.tar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/containers/controller/source.tar" beforeDir="false" afterPath="$PROJECT_DIR$/containers/controller/source.tar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/src/package/src/actuation.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/package/src/actuation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/src/package/src/actuation2.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/package/src/actuation2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/src/package/src/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/package/src/controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/package/src/script1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/package/src/script1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/src/package/src/script2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/source/src/package/src/script2.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,10 +83,10 @@
     <session id="-869164385">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -94,7 +96,7 @@
           <entry key="js" value="2" />
           <entry key="json" value="1" />
           <entry key="py" value="6" />
-          <entry key="sh" value="1" />
+          <entry key="sh" value="2" />
           <entry key="srv" value="3" />
           <entry key="txt" value="4" />
           <entry key="xml" value="1" />
@@ -103,6 +105,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Bash" value="1" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="10" />
@@ -114,17 +117,19 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="action" value="27" />
-          <entry key="py" value="2706" />
+          <entry key="py" value="2803" />
+          <entry key="sh" value="3" />
           <entry key="srv" value="36" />
           <entry key="txt" value="20" />
-          <entry key="yaml" value="65" />
+          <entry key="yaml" value="68" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="Bash" value="3" />
           <entry key="PLAIN_TEXT" value="83" />
-          <entry key="Python" value="2706" />
-          <entry key="YAML" value="65" />
+          <entry key="Python" value="2803" />
+          <entry key="YAML" value="68" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -135,23 +140,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/src/package/src/actuation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="657" column="21" selection-start-line="657" selection-start-column="21" selection-end-line="657" selection-end-column="21" />
+            <state relative-caret-position="846">
+              <caret line="167" column="16" selection-start-line="167" selection-start-column="16" selection-end-line="167" selection-end-column="53" />
               <folding>
                 <element signature="e#55#67#0" expanded="true" />
-                <marker date="1538667431957" expanded="true" signature="24837:24840" ph="..." />
-                <marker date="1538667431957" expanded="true" signature="24860:24914" ph="..." />
-                <marker date="1538667431957" expanded="true" signature="24860:25423" ph="..." />
+                <marker date="1538745901705" expanded="true" signature="25459:25462" ph="..." />
+                <marker date="1538745901705" expanded="true" signature="25482:25536" ph="..." />
+                <marker date="1538745901705" expanded="true" signature="25482:26044" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/src/package/src/actuation2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="657" column="21" selection-start-line="657" selection-start-column="21" selection-end-line="657" selection-end-column="21" />
+            <state relative-caret-position="306">
+              <caret line="166" column="17" selection-start-line="166" selection-start-column="17" selection-end-line="166" selection-end-column="17" />
               <folding>
                 <element signature="e#55#67#0" expanded="true" />
               </folding>
@@ -181,11 +186,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/src/package/src/controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+            <state relative-caret-position="18">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
               <folding>
                 <element signature="e#56#68#0" expanded="true" />
               </folding>
@@ -194,19 +199,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/src/package/CMakeLists.txt">
+        <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="59" column="11" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
+            <state relative-caret-position="126">
+              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
+        <entry file="file://$PROJECT_DIR$/containers/actuation/launch.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+            <state relative-caret-position="396">
+              <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -255,18 +260,18 @@
         <option value="$PROJECT_DIR$/ChoregrapheQuizes/QuizNeutral/html/js/neutral.js" />
         <option value="$PROJECT_DIR$/ChoregrapheQuizes/QuizNeutral/html/js/retail.js" />
         <option value="$PROJECT_DIR$/containers/actuation2/launch.sh" />
-        <option value="$PROJECT_DIR$/containers/actuation/launch.sh" />
         <option value="$PROJECT_DIR$/containers/controller/launch.sh" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/source/src/package/srv/GUICommand.srv" />
         <option value="$PROJECT_DIR$/source/src/package/srv/Personality.srv" />
         <option value="$PROJECT_DIR$/source/src/package/action/AdaptedReaction.action" />
         <option value="$PROJECT_DIR$/source/src/package/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/docker-compose.yaml" />
         <option value="$PROJECT_DIR$/source/src/package/src/gui.py" />
-        <option value="$PROJECT_DIR$/source/src/package/src/actuation2.py" />
-        <option value="$PROJECT_DIR$/source/src/package/src/actuation.py" />
         <option value="$PROJECT_DIR$/source/src/package/src/controller.py" />
+        <option value="$PROJECT_DIR$/docker-compose.yaml" />
+        <option value="$PROJECT_DIR$/containers/actuation/launch.sh" />
+        <option value="$PROJECT_DIR$/source/src/package/src/actuation.py" />
+        <option value="$PROJECT_DIR$/source/src/package/src/actuation2.py" />
       </list>
     </option>
   </component>
@@ -296,6 +301,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -307,6 +313,12 @@
               <item name="experimentRobocure" type="b2602c69:ProjectViewProjectNode" />
               <item name="experimentRobocure" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="experimentRobocure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="experimentRobocure" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="actuation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="experimentRobocure" type="b2602c69:ProjectViewProjectNode" />
@@ -338,7 +350,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -382,9 +393,8 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.20508568" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20729685" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.3294979" />
@@ -396,6 +406,7 @@
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="R Graphics" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="R Packages" order="2" />
@@ -608,13 +619,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/containers/adapter/launch.sh" />
-    <entry file="file://$PROJECT_DIR$/containers/actuation/launch.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/containers/actuation2/launch.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -669,26 +673,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/src/package/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="59" column="11" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/src/package/action/Sentence.action">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/source/src/package/src/script.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/source/src/package/src/gui.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -701,38 +687,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/src/package/src/actuation2.py">
+    <entry file="file://$PROJECT_DIR$/source/src/package/action/Sentence.action">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="657" column="21" selection-start-line="657" selection-start-column="21" selection-end-line="657" selection-end-column="21" />
-          <folding>
-            <element signature="e#55#67#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="54">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/src/package/src/script.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/src/package/src/actuation.py">
+    <entry file="file://$PROJECT_DIR$/source/src/package/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="657" column="21" selection-start-line="657" selection-start-column="21" selection-end-line="657" selection-end-column="21" />
-          <folding>
-            <element signature="e#55#67#0" expanded="true" />
-            <marker date="1538667431957" expanded="true" signature="24837:24840" ph="..." />
-            <marker date="1538667431957" expanded="true" signature="24860:24914" ph="..." />
-            <marker date="1538667431957" expanded="true" signature="24860:25423" ph="..." />
-          </folding>
+        <state relative-caret-position="522">
+          <caret line="59" column="11" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/src/package/src/controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        <state relative-caret-position="18">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
           <folding>
             <element signature="e#56#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/containers/actuation/launch.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/src/package/src/actuation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="167" column="16" selection-start-line="167" selection-start-column="16" selection-end-line="167" selection-end-column="53" />
+          <folding>
+            <element signature="e#55#67#0" expanded="true" />
+            <marker date="1538745901705" expanded="true" signature="25459:25462" ph="..." />
+            <marker date="1538745901705" expanded="true" signature="25482:25536" ph="..." />
+            <marker date="1538745901705" expanded="true" signature="25482:26044" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/src/package/src/actuation2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="166" column="17" selection-start-line="166" selection-start-column="17" selection-end-line="166" selection-end-column="17" />
+          <folding>
+            <element signature="e#55#67#0" expanded="true" />
           </folding>
         </state>
       </provider>

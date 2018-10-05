@@ -116,21 +116,24 @@ def speak(text, profile):
         sayAnimatedService = session.service("ALAnimatedSpeech")
 
         aux = round(7*random.random ())
-        if(profile == 1.0): #extrovert
-            if(aux == 1.0):
-                behavior = "Stand/BodyTalk/Speaking/BodyTalk_1"
+        if (profile == 1.0):  # extrovert
+            if (aux == 1.0):
+                # behavior = "Stand/BodyTalk/Speaking/BodyTalk_1"
+                behavior = "Stand/Emotions/Positive/Enthusiastic_1"
             elif (aux == 2.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_2"
             elif (aux == 3.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_3"
             elif (aux == 4.0):
-                behavior = "Stand/BodyTalk/Speaking/BodyTalk_4"
+                # behavior = "Stand/BodyTalk/Speaking/BodyTalk_4"
+                behavior = "Stand/Emotions/Positive/Optimistic_1"
             elif (aux == 5.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_5"
             elif (aux == 6.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_13"
             else:
-                behavior = "Stand/BodyTalk/Speaking/BodyTalk_14"
+                # behavior = "Stand/BodyTalk/Speaking/BodyTalk_14"
+                behavior = "Stand/Emotions/Positive/Confident_1"
 
         elif (profile == 0.0):  # ambivert
             if (aux == 1.0):
@@ -148,17 +151,21 @@ def speak(text, profile):
             else:
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_12"
 
-        elif (profile == -1.0):#introvert
+        elif (profile == -1.0):  # introvert
             if (aux == 1.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_6"
+                # behavior = "Stand/Emotions/Neutral/Embarrassed_1"
             elif (aux == 2.0):
-                behavior = "Stand/BodyTalk/Speaking/BodyTalk_7"
+                # behavior = "Stand/BodyTalk/Speaking/BodyTalk_7"
+                behavior = "Stand/Emotions/Neutral/Innocent_1"
             elif (aux == 3.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_8"
             elif (aux == 4.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_9"
             elif (aux == 5.0):
-                behavior = "Stand/BodyTalk/Speaking/BodyTalk_10"
+                # behavior = "Stand/BodyTalk/Speaking/BodyTalk_10"
+                #behavior = "Stand/Emotions/Positive/Shy_1"
+                behavior = "shybox-b513be/behavior_1"
             elif (aux == 6.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_11"
             else:
@@ -170,7 +177,7 @@ def speak(text, profile):
         #sayAnimatedService.say("hey there, I'm a social robot")
 
         robotSpeaks = True
-    except Exception, e:
+    except Exception as e:
         print "Error occured: ", e
 
 #sets idle motion
@@ -282,8 +289,10 @@ def attentionTracker(profile, finish):
             print "attentionTracker fully extrovert"
             awarenessService.setParameter("LookStimulusSpeed",1.0)
             awarenessService.setParameter("LookBackSpeed",1.0)
-            awarenessService.setStimulusDetectionEnabled("Sound",True)
-            awarenessService.setStimulusDetectionEnabled("Movement",True)
+            awarenessService.setStimulusDetectionEnabled("Sound",False)
+            #awarenessService.setStimulusDetectionEnabled ("Sound", True)
+            awarenessService.setStimulusDetectionEnabled("Movement",False)
+            #awarenessService.setStimulusDetectionEnabled ("Movement", True)
             awarenessService.setStimulusDetectionEnabled("NavigationMotion",True)
             awarenessService.setStimulusDetectionEnabled("TabletTouch",False)
             awarenessService.setStimulusDetectionEnabled("Touch",True)
@@ -657,7 +666,7 @@ def scriptManager(): #manages the script
 
         print "Robot2 " +sentenceSent.sentence
 
-        #speak(sentenceSent.sentence, profileFromController)
+        speak(sentenceSent.sentence, profileFromController)
         time.sleep (3)
 
         resultSentence = SentenceResult ()
