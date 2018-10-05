@@ -64,11 +64,20 @@ def main():
     nextRobot = int(whoGoesFirst) #1 --> left, 2 --> right
     #control script
     script = True
-    round = 0
     # ... 1. reads from file / gets first sentence (until finished)
-    sentence = "ke a paaa chaaaao"
-    while(script):
+    fRobot1 = open('./src/package/src/script1.txt','r')  # opens file with name of "test.txt"
+    fRobot2 = open('./src/package/src/script2.txt', 'r')  # opens file with name of "test.txt"
 
+    if(nextRobot == 1):
+        sentence = fRobot1.readline()
+        fakeSentence = fRobot2.readline ()
+    elif (nextRobot == 2):
+        sentence = fRobot2.readline ()
+        fakeSentence = fRobot1.readline ()
+    if (sentence == ""):
+        script = False
+
+    while(script):
         # ... 2. sends sentence to next robot
         rosClient = actionlib.SimpleActionClient('turn'+str(nextRobot), SentenceAction)
         rosClient.wait_for_server ()
@@ -87,17 +96,19 @@ def main():
         nextRobot = (2 - int(whoGoesFirst)) + 1
         whoGoesFirst = nextRobot
         # ... 1. reads from file / gets first sentence (until finished)
-        if (round < 1):
-            sentence = "pero ke a paaa chaaaao"
-            round = round +1
-        elif (round < 3):
-            sentence = "ke a paaa chaaaao"
-            round = round +1
-        elif (round < 6):
-            sentence = "pero ke a paaa chaaaao"
-            round = round +1
-        else:
+        if(nextRobot == 1):
+            sentence = fRobot1.readline()
+            fakeSentence = fRobot2.readline ()
+        elif (nextRobot == 2):
+            sentence = fRobot2.readline ()
+            fakeSentence = fRobot1.readline ()
+
+
+        if (sentence == ""):
             script = False
+
+    fRobot1.close()
+    fRobot2.close ()
     print "This is the end. My friend."
     time.sleep(5) #?
     rospy.spin()

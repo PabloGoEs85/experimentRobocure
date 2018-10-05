@@ -655,10 +655,10 @@ def scriptManager(): #manages the script
     global profileFromController
     def receive_sentence(sentenceSent):
 
-        print "Message received motherfocka ACTUATION " +sentenceSent.sentence
+        print "Robot1 " +sentenceSent.sentence
 
-        speak(sentenceSent.sentence, profileFromController)
-        #time.sleep (3)
+        #speak(sentenceSent.sentence, profileFromController)
+        time.sleep (3)
 
         resultSentence = SentenceResult ()
         sentenceServer.set_succeeded (resultSentence)
