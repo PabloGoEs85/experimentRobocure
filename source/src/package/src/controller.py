@@ -65,15 +65,21 @@ def main():
     #control script
     script = True
     # ... 1. reads from file / gets first sentence (until finished)
-    fRobot1 = open('./src/package/src/script1.txt','r')  # opens file with name of "test.txt"
-    fRobot2 = open('./src/package/src/script2.txt', 'r')  # opens file with name of "test.txt"
+    fRobotIntrovert = open('./src/package/src/scriptIntrovert.txt','r')  # opens file with name of "test.txt"
+    fRobotExtrovert = open('./src/package/src/scriptExtrovert.txt', 'r')  # opens file with name of "test.txt"
 
-    if(nextRobot == 1):
-        sentence = fRobot1.readline()
-        fakeSentence = fRobot2.readline ()
-    elif (nextRobot == 2):
-        sentence = fRobot2.readline ()
-        fakeSentence = fRobot1.readline ()
+    if(nextRobot == 1 and personalityRobot1 == -1):
+        sentence = fRobotIntrovert.readline()
+        fakeSentence = fRobotExtrovert.readline ()
+    elif (nextRobot == 1 and personalityRobot1 == 1):
+        sentence = fRobotExtrovert.readline ()
+        fakeSentence = fRobotIntrovert.readline ()
+    elif(nextRobot == 2 and personalityRobot2 == -1):
+        sentence = fRobotIntrovert.readline()
+        fakeSentence = fRobotExtrovert.readline ()
+    elif (nextRobot == 2 and personalityRobot2 == 1):
+        sentence = fRobotExtrovert.readline ()
+        fakeSentence = fRobotIntrovert.readline ()
     if (sentence == ""):
         script = False
 
@@ -96,19 +102,24 @@ def main():
         nextRobot = (2 - int(whoGoesFirst)) + 1
         whoGoesFirst = nextRobot
         # ... 1. reads from file / gets first sentence (until finished)
-        if(nextRobot == 1):
-            sentence = fRobot1.readline()
-            fakeSentence = fRobot2.readline ()
-        elif (nextRobot == 2):
-            sentence = fRobot2.readline ()
-            fakeSentence = fRobot1.readline ()
-
+        if (nextRobot == 1 and personalityRobot1 == -1):
+            sentence = fRobotIntrovert.readline ()
+            fakeSentence = fRobotExtrovert.readline ()
+        elif (nextRobot == 1 and personalityRobot1 == 1):
+            sentence = fRobotExtrovert.readline ()
+            fakeSentence = fRobotIntrovert.readline ()
+        elif (nextRobot == 2 and personalityRobot2 == -1):
+            sentence = fRobotIntrovert.readline ()
+            fakeSentence = fRobotExtrovert.readline ()
+        elif (nextRobot == 2 and personalityRobot2 == 1):
+            sentence = fRobotExtrovert.readline ()
+            fakeSentence = fRobotIntrovert.readline ()
 
         if (sentence == ""):
             script = False
 
-    fRobot1.close()
-    fRobot2.close ()
+    fRobotIntrovert.close()
+    fRobotExtrovert.close ()
     print "This is the end. My friend."
     time.sleep(5) #?
     rospy.spin()

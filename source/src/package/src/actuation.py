@@ -84,7 +84,7 @@ def proxemics(profile, peopleZone1, peopleZone2, peopleZone3):
 def speak(text, profile):
     global robotSpeaks
     if (profile ==-1.0): #fully introvert
-        speed = 80
+        speed = 70
         volume = 0.5
         pitch = 0.9
     elif (profile == -0.5): #slightly introvert
@@ -100,7 +100,7 @@ def speak(text, profile):
         volume = 0.72
         pitch = 1.0
     elif (profile == 1.0): #fully extrovert
-        speed = 110
+        speed = 90
         volume = 1.0 #0.8
         pitch = 1.1
 
@@ -175,7 +175,7 @@ def speak(text, profile):
         sayAnimatedService.say (text)
         print(text)
         #sayAnimatedService.say("hey there, I'm a social robot")
-
+        facialExpression (0, profile)
         robotSpeaks = True
     except Exception as e:
         print "Error occured: ", e
@@ -668,7 +668,7 @@ def scriptManager(): #manages the script
         print "Robot1 " +sentenceSent.sentence
 
         speak(sentenceSent.sentence, profileFromController)
-        time.sleep (3)
+        time.sleep (1)
 
         resultSentence = SentenceResult ()
         sentenceServer.set_succeeded (resultSentence)
