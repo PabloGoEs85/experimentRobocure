@@ -84,7 +84,7 @@ def proxemics(profile, peopleZone1, peopleZone2, peopleZone3):
 def speak(text, profile):
     global robotSpeaks
     if (profile ==-1.0): #fully introvert
-        speed = 70
+        speed = 80
         volume = 0.5
         pitch = 0.9
     elif (profile == -0.5): #slightly introvert
@@ -105,6 +105,7 @@ def speak(text, profile):
         pitch = 1.1
 
     try:
+        eyeBlinkingBehavior (profile)
         #print("Saying... " + text)
         #sayAnimatedService = session.service("ALAnimatedSpeech")
         sayService = session.service("ALTextToSpeech")
@@ -177,6 +178,8 @@ def speak(text, profile):
         #sayAnimatedService.say("hey there, I'm a social robot")
         facialExpression (0, profile)
         robotSpeaks = True
+        eyeBlinkingBehavior(profile)
+        robotSpeaks = False
     except Exception as e:
         print "Error occured: ", e
 
@@ -345,6 +348,8 @@ def facialExpression(emotionId, profile):
         wait = 2
     #time.sleep(wait)
     colorLed = "white"
+    eyeBlinkingBehavior (profile)
+    faceExpression = 0
     facialExpressionService.fadeRGB("FaceLeds", colorLed, 1)
     eyeBlinkingBehavior(profile) #as face expression has changed, it needs to update that info
 

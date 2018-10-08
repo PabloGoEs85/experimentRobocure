@@ -84,7 +84,7 @@ def proxemics(profile, peopleZone1, peopleZone2, peopleZone3):
 def speak(text, profile):
     global robotSpeaks
     if (profile ==-1.0): #fully introvert
-        speed = 70
+        speed = 80
         volume = 0.5
         pitch = 0.8
     elif (profile == -0.5): #slightly introvert
