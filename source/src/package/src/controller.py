@@ -42,8 +42,8 @@ def main():
         guiClient = rospy.ServiceProxy ('GUICommand', GUICommand)
         guiCommand = guiClient ()
         personalityRobot1 = guiCommand.command_personality
-        #personalityRobot2 = (2 - personalityRobot1) + 1
         personalityRobot2 = (-1)* personalityRobot1
+        #personalityRobot2 = personalityRobot1
         whoGoesFirst = guiCommand.command_first
         startStop = guiCommand.command_start
 

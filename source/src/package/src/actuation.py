@@ -86,7 +86,7 @@ def speak(text, profile):
     if (profile ==-1.0): #fully introvert
         speed = 80
         volume = 0.5
-        pitch = 0.9
+        pitch = 0.8
     elif (profile == -0.5): #slightly introvert
         speed = 90
         volume = 0.6
@@ -106,6 +106,8 @@ def speak(text, profile):
 
     try:
         eyeBlinkingBehavior (profile)
+        #postureService = session.service("ALRobotPosture")
+        #postureService.goToPosture("Stand",1.0)
         #print("Saying... " + text)
         #sayAnimatedService = session.service("ALAnimatedSpeech")
         sayService = session.service("ALTextToSpeech")
@@ -129,7 +131,8 @@ def speak(text, profile):
                 # behavior = "Stand/BodyTalk/Speaking/BodyTalk_4"
                 behavior = "Stand/Emotions/Positive/Optimistic_1"
             elif (aux == 5.0):
-                behavior = "Stand/BodyTalk/Speaking/BodyTalk_5"
+                #behavior = "Stand/BodyTalk/Speaking/BodyTalk_5"
+                behavior = "Stand/Emotions/Positive/Optimistic_1"
             elif (aux == 6.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_13"
             else:
@@ -160,7 +163,8 @@ def speak(text, profile):
                 # behavior = "Stand/BodyTalk/Speaking/BodyTalk_7"
                 behavior = "Stand/Emotions/Neutral/Innocent_1"
             elif (aux == 3.0):
-                behavior = "Stand/BodyTalk/Speaking/BodyTalk_8"
+                #behavior = "Stand/BodyTalk/Speaking/BodyTalk_8"
+                behavior = "shybox-b513be/behavior_1"
             elif (aux == 4.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_9"
             elif (aux == 5.0):
@@ -170,7 +174,8 @@ def speak(text, profile):
             elif (aux == 6.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_11"
             else:
-                behavior = "Stand/BodyTalk/Speaking/BodyTalk_12"
+                #behavior = "Stand/BodyTalk/Speaking/BodyTalk_12"
+                behavior = "shybox-b513be/behavior_1"
 
         text = "^start(" + behavior + ") " + text
         sayAnimatedService.say (text)
@@ -294,8 +299,8 @@ def attentionTracker(profile, finish):
             awarenessService.setParameter("LookStimulusSpeed",1.0)
             awarenessService.setParameter("LookBackSpeed",1.0)
             #awarenessService.setStimulusDetectionEnabled("Sound",True)
-            awarenessService.setStimulusDetectionEnabled ("Sound", False)
-            awarenessService.setStimulusDetectionEnabled("Movement",False)
+            awarenessService.setStimulusDetectionEnabled ("Sound", True)
+            awarenessService.setStimulusDetectionEnabled("Movement",True)
             #awarenessService.setStimulusDetectionEnabled ("Movement", True)
             awarenessService.setStimulusDetectionEnabled("NavigationMotion",True)
             awarenessService.setStimulusDetectionEnabled("TabletTouch",False)
@@ -303,7 +308,7 @@ def attentionTracker(profile, finish):
             awarenessService.setStimulusDetectionEnabled("People",True)
             awarenessService.setEngagementMode("Unengaged")
             awarenessService.setTrackingMode("BodyRotation")
-            awarenessService.setTrackingMode("MoveContextually")
+            #awarenessService.setTrackingMode("MoveContextually")
             #trackerService.setMode("move")
         awarenessService.setEnabled(True)
 
@@ -673,7 +678,7 @@ def scriptManager(): #manages the script
         print "Robot1 " +sentenceSent.sentence
 
         speak(sentenceSent.sentence, profileFromController)
-        time.sleep (1)
+        #time.sleep (1)
 
         resultSentence = SentenceResult ()
         sentenceServer.set_succeeded (resultSentence)

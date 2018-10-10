@@ -100,11 +100,14 @@ def speak(text, profile):
         volume = 0.72
         pitch = 1.0
     elif (profile == 1.0): #fully extrovert
-        speed = 10
-        volume = 0.8
+        speed = 90
+        volume = 1.0 #0.8
         pitch = 1.1
 
     try:
+        #eyeBlinkingBehavior (profile)
+        #postureService = session.service("ALRobotPosture")
+        #postureService.goToPosture("Stand",1.0)
         #print("Saying... " + text)
         #sayAnimatedService = session.service("ALAnimatedSpeech")
         sayService = session.service("ALTextToSpeech")
@@ -128,7 +131,8 @@ def speak(text, profile):
                 # behavior = "Stand/BodyTalk/Speaking/BodyTalk_4"
                 behavior = "Stand/Emotions/Positive/Optimistic_1"
             elif (aux == 5.0):
-                behavior = "Stand/BodyTalk/Speaking/BodyTalk_5"
+                #behavior = "Stand/BodyTalk/Speaking/BodyTalk_5"
+                behavior = "Stand/Emotions/Positive/Optimistic_1"
             elif (aux == 6.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_13"
             else:
@@ -170,15 +174,20 @@ def speak(text, profile):
             elif (aux == 6.0):
                 behavior = "Stand/BodyTalk/Speaking/BodyTalk_11"
             else:
-                behavior = "Stand/BodyTalk/Speaking/BodyTalk_12"
+                #behavior = "Stand/BodyTalk/Speaking/BodyTalk_12"
+                behavior = "shybox-b513be/behavior_1"
 
         text = "^start(" + behavior + ") " + text
         sayAnimatedService.say (text)
         print(text)
+        #sayAnimatedService.say("hey there, I'm a social robot")
         facialExpression (0, profile)
         robotSpeaks = True
+        eyeBlinkingBehavior(profile)
+        robotSpeaks = False
     except Exception as e:
         print "Error occured: ", e
+
 
 #sets idle motion
 def idleMotion(profile, finish):
@@ -289,9 +298,9 @@ def attentionTracker(profile, finish):
             print "attentionTracker fully extrovert"
             awarenessService.setParameter("LookStimulusSpeed",1.0)
             awarenessService.setParameter("LookBackSpeed",1.0)
-            awarenessService.setStimulusDetectionEnabled("Sound",False)
-            #awarenessService.setStimulusDetectionEnabled ("Sound", True)
-            awarenessService.setStimulusDetectionEnabled("Movement",False)
+            #awarenessService.setStimulusDetectionEnabled("Sound",True)
+            awarenessService.setStimulusDetectionEnabled ("Sound", True)
+            awarenessService.setStimulusDetectionEnabled("Movement",True)
             #awarenessService.setStimulusDetectionEnabled ("Movement", True)
             awarenessService.setStimulusDetectionEnabled("NavigationMotion",True)
             awarenessService.setStimulusDetectionEnabled("TabletTouch",False)
@@ -299,7 +308,7 @@ def attentionTracker(profile, finish):
             awarenessService.setStimulusDetectionEnabled("People",True)
             awarenessService.setEngagementMode("Unengaged")
             awarenessService.setTrackingMode("BodyRotation")
-            awarenessService.setTrackingMode("MoveContextually")
+            #awarenessService.setTrackingMode("MoveContextually")
             #trackerService.setMode("move")
         awarenessService.setEnabled(True)
 
@@ -344,6 +353,8 @@ def facialExpression(emotionId, profile):
         wait = 2
     #time.sleep(wait)
     colorLed = "white"
+    eyeBlinkingBehavior (profile)
+    faceExpression = 0
     facialExpressionService.fadeRGB("FaceLeds", colorLed, 1)
     eyeBlinkingBehavior(profile) #as face expression has changed, it needs to update that info
 
@@ -667,7 +678,7 @@ def scriptManager(): #manages the script
         print "Robot2 " +sentenceSent.sentence
 
         speak(sentenceSent.sentence, profileFromController)
-        time.sleep (1)
+       # time.sleep (1)
 
         resultSentence = SentenceResult ()
         sentenceServer.set_succeeded (resultSentence)
@@ -683,7 +694,7 @@ def main(session):
 
     rospy.init_node('actuation2')
 
-    rospy.wait_for_service('controllerPersonality2') #gets personality for robot1
+    rospy.wait_for_service('controllerPersonality2') #gets personality for robot2
     try:
         profileClient = rospy.ServiceProxy('controllerPersonality2', Personality)
         profile = profileClient()
