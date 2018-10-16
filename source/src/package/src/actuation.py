@@ -369,7 +369,7 @@ def eyeBlinkingBehavior(profile):
 
     def blinkMorphology():
         def eyeBlinkCommand(duration, fullBlink, blinkType):
-            print "About to blink"
+    #        print "About to blink"
             facialExpressionService = session.service("ALLeds")
             facialExpressionService.on("FaceLeds")
             global colorLed #does this work?
@@ -650,6 +650,13 @@ def startIdle():
     faceExpression = 0
     robotSpeaks = False
 
+    audioService = session.service("ALAudioDevice")
+    audioService.setOutputVolume(70)
+
+    #Cleans content on the tablet
+    tabletService = session.service ("ALTabletService")
+    tabletService.hideWebview ()
+
     posture_service = session.service("ALRobotPosture")
     if (posture_service.getPostureFamily() != "Standing"):
         posture_service.goToPosture("StandInit", 0.25)
@@ -675,7 +682,7 @@ def scriptManager(): #manages the script
     global profileFromController
     def receive_sentence(sentenceSent):
 
-        print "Robot1 " +sentenceSent.sentence
+     #   print "Robot1 " +sentenceSent.sentence
 
         speak(sentenceSent.sentence, profileFromController)
         #time.sleep (1)

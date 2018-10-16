@@ -10,7 +10,7 @@ services:
     ros-actuation2:
         build: ./containers/actuation2
         environment:
-        - ROBOT_IP=192.168.1.24
+        - ROBOT_IP=192.168.1.13
         - ROS_MASTER_URI=http://ros-master:11311/
         - PYTHONUNBUFFERED=0
         depends_on:

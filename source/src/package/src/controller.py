@@ -96,7 +96,7 @@ def main():
 
         # ... 3. waits for feedback
         result = SentenceResult ()
-        print "Message received motherfocka CONTROLLER"
+
 
         # ... 4. switch to second robot
         nextRobot = (2 - int(whoGoesFirst)) + 1
@@ -120,7 +120,7 @@ def main():
 
     fRobotIntrovert.close()
     fRobotExtrovert.close ()
-    print "This is the end. My friend."
+
     time.sleep(5) #?
     rospy.spin()
 

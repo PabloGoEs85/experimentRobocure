@@ -41,11 +41,11 @@ def main():
     frameUpL.grid (row=0, column=0)
     frameUpL.pack_propagate (False)
 
-    Radiobutton(frameUpL, variable=RBpersonality, value=-1, text="ext vs. int").grid(row=1, column=2)
-    Radiobutton(frameUpL, variable=RBpersonality, value=1, text="int vs. ext").grid(row=2, column=2)
+    Radiobutton(frameUpL, variable=RBpersonality, value=-1, text="int vs. ext").grid(row=1, column=2)
+    Radiobutton(frameUpL, variable=RBpersonality, value=1, text="ext vs. int").grid(row=2, column=2)
 
-    Radiobutton(frameUpL, variable=RBwhoFirst, value=1, text="Left first").grid(row=1, column=4)
-    Radiobutton(frameUpL, variable=RBwhoFirst, value=2, text="Right first").grid(row=2, column=4)
+    Radiobutton(frameUpL, variable=RBwhoFirst, value=1, text="Master first").grid(row=1, column=4)
+    Radiobutton(frameUpL, variable=RBwhoFirst, value=2, text="Module first").grid(row=2, column=4)
 
     frameDoR = Frame (window, width=int (0.2 * widthScreen), height=int (0.2 * heightScreen))
     frameDoR.grid (row=0, column=1)
