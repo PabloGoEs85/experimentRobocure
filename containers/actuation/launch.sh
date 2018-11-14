@@ -20,7 +20,7 @@ roscore > /dev/null &
 
 #sleep 50s
 
-roslaunch pepper_bringup pepper_full_py.launch nao_ip:=192.168.1.31 > /dev/null
+roslaunch pepper_bringup pepper_full_py.launch nao_ip:=192.168.1.102 > /dev/null
 
 #roslaunch pepper_bringup pepper_full.launch nao_ip:=192.168.1.106 
 

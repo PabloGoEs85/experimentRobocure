@@ -248,7 +248,7 @@ def attentionTracker(profile, finish):
             awarenessService.setParameter("LookStimulusSpeed",0.1)
             awarenessService.setParameter("LookBackSpeed",0.1)
             awarenessService.setStimulusDetectionEnabled("Sound",False)
-            awarenessService.setStimulusDetectionEnabled("Movement",False)
+            awarenessService.setStimulusDetectionEnabled("Movement",True)
             awarenessService.setStimulusDetectionEnabled("NavigationMotion",False)
             awarenessService.setStimulusDetectionEnabled("TabletTouch",False)
             awarenessService.setStimulusDetectionEnabled("Touch",True)
@@ -299,7 +299,7 @@ def attentionTracker(profile, finish):
             awarenessService.setParameter("LookStimulusSpeed",1.0)
             awarenessService.setParameter("LookBackSpeed",1.0)
             #awarenessService.setStimulusDetectionEnabled("Sound",True)
-            awarenessService.setStimulusDetectionEnabled ("Sound", True)
+            awarenessService.setStimulusDetectionEnabled ("Sound", False)
             awarenessService.setStimulusDetectionEnabled("Movement",True)
             #awarenessService.setStimulusDetectionEnabled ("Movement", True)
             awarenessService.setStimulusDetectionEnabled("NavigationMotion",True)
@@ -657,6 +657,8 @@ def startIdle():
     tabletService = session.service ("ALTabletService")
     tabletService.hideWebview ()
 
+    facialExpression (0, profileFromController)  # neutral face
+
     posture_service = session.service("ALRobotPosture")
     if (posture_service.getPostureFamily() != "Standing"):
         posture_service.goToPosture("StandInit", 0.25)
@@ -706,7 +708,7 @@ def main(session):
         profileClient = rospy.ServiceProxy('controllerPersonality1', Personality)
         profile = profileClient()
         profileFromController = profile.personality_profile
-
+        #profileFromController = 0.0
         print "personality for robot 1 %d" %profileFromController
 
         # sets up personality of the robot
